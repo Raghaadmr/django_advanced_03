@@ -3,10 +3,12 @@ from .models import Store
 
 
 
+
 class StoreAdmin(admin.ModelAdmin):
-	Display = ('id','name','description')
-	Search = ['name','description']
-	Add_filter = ['added']
-	Clickable =( 'id','name')
-	Editable=['description']
-admin.site.register(Store,StoreAdmin)
+	list_display=('id','name','description',)
+	search_fields=['name','description']
+	list_filter=['added']
+	list_display_links=('id','name')
+	list_editable=['description']
+
+admin.site.register(Store, StoreAdmin)
